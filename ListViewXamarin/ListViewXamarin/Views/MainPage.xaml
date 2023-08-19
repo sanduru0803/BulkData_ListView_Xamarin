@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ListViewXamarin"
+             x:Class="ListViewXamarin.MainPage">
+    <ContentPage.Resources>
+        <local:DynamicToPathValueConverter x:Key="converter"/>
+    </ContentPage.Resources>
+
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Text="{Binding TotalRecordCount}" BackgroundColor="SlateBlue" FontSize="18" FontAttributes="Bold" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <CollectionView x:Name="listView" Grid.Row="1" ItemsSource="{Binding Items}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="#757575" Padding="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <!--<Label Grid.Row="0" Grid.Column="0" Text="S\No  " HorizontalOptions="Start" TextColor="Black" FontSize="16" FontAttributes="Bold"/>-->
+                            <Label Grid.Row="0" Grid.Column="0" Text="Bayan No :  " HorizontalOptions="Start" TextColor="Black" FontSize="16" FontAttributes="Bold"/>
+                            <Label Grid.Row="1" Grid.Column="0" Text="Vessel name :  " HorizontalOptions="Start" TextColor="Black" FontSize="16" FontAttributes="Bold"/>
+                            <Label Grid.Row="2" Grid.Column="0" Text="Shipping line :  " HorizontalOptions="Start" TextColor="Black" FontSize="16" FontAttributes="Bold"/>
+
+                            <!--<Label Grid.Row="0" Grid.Column="1" Text="{Binding Sno}" HorizontalOptions="Start" TextColor="Black" FontSize="16" WidthRequest="100"/>-->
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding bd_bayannumber}" HorizontalOptions="Start" TextColor="Black" FontSize="16" WidthRequest="100"/>
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding bd_vesselname1}" HorizontalOptions="Start" TextColor="Black" WidthRequest="100"/>
+                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding bd_shippinglineid}" HorizontalOptions="Start" TextColor="Black" WidthRequest="100"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+
+</ContentPage>
